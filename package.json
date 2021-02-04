@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet-repository",
-  "version": "1.0.0",
+  "version": "69.0.0-eric",
   "private": true,
   "workspaces": [
     "packages/*"
