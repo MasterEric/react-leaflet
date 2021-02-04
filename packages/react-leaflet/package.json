@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet",
-  "version": "3.1.0",
+  "version": "69.0.0-eric",
   "description": "React components for Leaflet maps",
   "main": "cjs/index.js",
   "module": "esm/index.js",
