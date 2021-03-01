@@ -1,6 +1,6 @@
 {
   "name": "react-leaflet",
-  "version": "3.1.0",
+  "version": "69.0.0-eric",
   "description": "React components for Leaflet maps",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -43,7 +43,7 @@
     "umd/*"
   ],
   "dependencies": {
-    "@react-leaflet/core": "^1.0.2"
+    "@react-leaflet/core": "https://gitpkg.now.sh/MasterEric/react-leaflet/packages/core?dist"
   },
   "peerDependencies": {
     "leaflet": "^1.7.1",
