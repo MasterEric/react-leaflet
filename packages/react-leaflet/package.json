@@ -7,7 +7,7 @@
   "types": "types/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build:clean": "del cjs esm types umd",
+    "build:clean": "rm -rf cjs esm types umd",
     "build:cjs": "babel src --out-dir cjs --extensions .ts,.tsx",
     "build:esm": "cross-env BABEL_ENV=esm babel src --out-dir esm --extensions .ts,.tsx",
     "build:types": "tsc --emitDeclarationOnly",
