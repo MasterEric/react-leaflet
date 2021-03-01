@@ -43,7 +43,7 @@
     "umd/*"
   ],
   "dependencies": {
-    "@react-leaflet/core": "https://gitpkg.now.sh/MasterEric/react-leaflet/packages/core?dist"
+    "@react-leaflet/core": "file:../core"
   },
   "peerDependencies": {
     "leaflet": "^1.7.1",

@@ -4,7 +4,10 @@
     "baseUrl": "./packages",
     "paths": {
       "@react-leaflet/core": ["core/src"],
-      "react-leaflet": ["react-leaflet/src"]
-    }
+      "react-leaflet": ["react-leaflet/src"],
+      "react": ["node_modules/@types/react"]
+    },
+    "types": [],
+    "typeRoots": ["./node_modules/@types/"]
   }
 }

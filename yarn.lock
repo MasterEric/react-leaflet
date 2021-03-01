@@ -1967,6 +1967,13 @@
     os-homedir "^1.0.1"
     regexpu-core "^4.5.4"
 
+"@react-leaflet/core@^1.0.2":
+  version "1.0.2"
+  resolved "https://gitpkg.now.sh/MasterEric/react-leaflet/packages/core?dist#5bcf19eac8d670308a2159a9cc2a257205ec9c70"
+
+"@react-leaflet/core@file:packages/core":
+  version "69.0.0-eric"
+
 "@rollup/plugin-babel@^5.2.3":
   version "5.2.3"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.2.3.tgz#ee8fffbaa62a6c9ccd41b1bfca32e81f847700ee"
@@ -10852,6 +10859,13 @@ react-json-view@^1.19.1:
     react-base16-styling "^0.6.0"
     react-lifecycles-compat "^3.0.4"
     react-textarea-autosize "^6.1.0"
+
+react-leaflet@^3.0.3:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-leaflet/-/react-leaflet-3.1.0.tgz#42deb5e454518016eff8bc85511ae58812f910f5"
+  integrity sha512-kdZS8NYbYFPmkQr7zSDR2gkKGFeWvkxqoqcmZEckzHL4d5c85dJ2gbbqhaPDpmWWgaRw9O29uA/77qpKmK4mTQ==
+  dependencies:
+    "@react-leaflet/core" "^1.0.2"
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
