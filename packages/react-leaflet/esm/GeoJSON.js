@@ -11,4 +11,12 @@ export const GeoJSON = createPathComponent(function createGeoJSON({
       overlayContainer: instance
     }
   };
+}, function updateGeoJSON(layer, props, prevProps) {
+  if (props.style !== prevProps.style) {
+    if (props.style == null) {
+      layer.resetStyle();
+    } else {
+      layer.setStyle(props.style);
+    }
+  }
 });

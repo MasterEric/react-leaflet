@@ -54,12 +54,7 @@ export const Popup = createOverlayComponent(function createPopup(props, context)
         popupopen: onPopupOpen,
         popupclose: onPopupClose
       });
-
-      if (context.overlayContainer == null) {
-        context.map.removeLayer(instance);
-      } else {
-        context.overlayContainer.unbindPopup();
-      }
+      context.map.removeLayer(instance);
     };
   }, [element, context, setOpen, onClose, onOpen, position]);
 });

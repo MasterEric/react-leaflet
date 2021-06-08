@@ -46,8 +46,11 @@ export const Tooltip = createOverlayComponent(function createTooltip(props, cont
       container.off({
         tooltipopen: onTooltipOpen,
         tooltipclose: onTooltipClose
-      });
-      container.unbindTooltip();
+      }); // @ts-ignore protected property
+
+      if (container._map != null) {
+        container.unbindTooltip();
+      }
     };
   }, [element, context, setOpen, onClose, onOpen]);
 });

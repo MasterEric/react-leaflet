@@ -139,9 +139,7 @@
   }
 
   function withPane(props, context) {
-    var _props$pane;
-
-    const pane = (_props$pane = props.pane) != null ? _props$pane : context.pane;
+    const pane = props.pane ?? context.pane;
     return pane ? { ...props,
       pane
     } : props;
@@ -193,12 +191,13 @@
 
   function useLayerLifecycle(element, context) {
     React.useEffect(function addLayer() {
-      var _context$layerContain;
-
-      const container = (_context$layerContain = context.layerContainer) != null ? _context$layerContain : context.map;
+      const container = context.layerContainer ?? context.map;
       container.addLayer(element.instance);
       return function removeLayer() {
-        container.removeLayer(element.instance);
+        var _context$layersContro;
+
+        (_context$layersContro = context.layersControl) == null ? void 0 : _context$layersContro.removeLayer(element.instance);
+        context.map.removeLayer(element.instance);
       };
     }, [context, element]);
   }
@@ -217,9 +216,7 @@
     const optionsRef = React.useRef();
     React.useEffect(function updatePathOptions() {
       if (props.pathOptions !== optionsRef.current) {
-        var _props$pathOptions;
-
-        const options = (_props$pathOptions = props.pathOptions) != null ? _props$pathOptions : {};
+        const options = props.pathOptions ?? {};
         element.instance.setStyle(options);
         optionsRef.current = options;
       }
@@ -383,6 +380,14 @@
         overlayContainer: instance
       }
     };
+  }, function updateGeoJSON(layer, props, prevProps) {
+    if (props.style !== prevProps.style) {
+      if (props.style == null) {
+        layer.resetStyle();
+      } else {
+        layer.setStyle(props.style);
+      }
+    }
   });
 
   const ImageOverlay = createLayerComponent(function createImageOveraly({
@@ -567,7 +572,7 @@
     } : null, [map]);
     const contents = context ? /*#__PURE__*/React__default['default'].createElement(LeafletProvider, {
       value: context
-    }, children) : placeholder != null ? placeholder : null;
+    }, children) : placeholder ?? null;
     return /*#__PURE__*/React__default['default'].createElement("div", _extends({}, props, {
       ref: mapRef
     }), contents);
@@ -658,8 +663,6 @@
   }
 
   function createPane(props, context) {
-    var _props$pane;
-
     const name = props.name;
 
     if (DEFAULT_PANES.indexOf(name) !== -1) {
@@ -670,7 +673,7 @@
       throw new Error(`A pane with this name already exists: ${name}`);
     }
 
-    const parentPaneName = (_props$pane = props.pane) != null ? _props$pane : context.pane;
+    const parentPaneName = props.pane ?? context.pane;
     const parentPane = parentPaneName ? context.map.getPane(parentPaneName) : undefined;
     const element = context.map.createPane(name, parentPane);
 
@@ -801,12 +804,7 @@
           popupopen: onPopupOpen,
           popupclose: onPopupClose
         });
-
-        if (context.overlayContainer == null) {
-          context.map.removeLayer(instance);
-        } else {
-          context.overlayContainer.unbindPopup();
-        }
+        context.map.removeLayer(instance);
       };
     }, [element, context, setOpen, onClose, onOpen, position]);
   });
@@ -924,8 +922,11 @@
         container.off({
           tooltipopen: onTooltipOpen,
           tooltipclose: onTooltipClose
-        });
-        container.unbindTooltip();
+        }); // @ts-ignore protected property
+
+        if (container._map != null) {
+          container.unbindTooltip();
+        }
       };
     }, [element, context, setOpen, onClose, onOpen]);
   });

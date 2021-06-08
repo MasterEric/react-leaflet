@@ -5,12 +5,13 @@ import { useEventHandlers } from './events';
 import { withPane } from './pane';
 export function useLayerLifecycle(element, context) {
   useEffect(function addLayer() {
-    var _context$layerContain;
-
-    const container = (_context$layerContain = context.layerContainer) != null ? _context$layerContain : context.map;
+    const container = context.layerContainer ?? context.map;
     container.addLayer(element.instance);
     return function removeLayer() {
-      container.removeLayer(element.instance);
+      var _context$layersContro;
+
+      (_context$layersContro = context.layersControl) == null ? void 0 : _context$layersContro.removeLayer(element.instance);
+      context.map.removeLayer(element.instance);
     };
   }, [context, element]);
 }

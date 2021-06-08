@@ -18,5 +18,13 @@ const GeoJSON = (0, _core.createPathComponent)(function createGeoJSON({
       overlayContainer: instance
     }
   };
+}, function updateGeoJSON(layer, props, prevProps) {
+  if (props.style !== prevProps.style) {
+    if (props.style == null) {
+      layer.resetStyle();
+    } else {
+      layer.setStyle(props.style);
+    }
+  }
 });
 exports.GeoJSON = GeoJSON;
